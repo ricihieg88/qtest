@@ -1,10 +1,28 @@
-node
+pipeline{
 
-{
+agent{
 
-stage 'stage 1'
-echo 'Hello world 1'
-stage 'stage 2'
-echo 'Hello World 2'
+label "windows"
+}
 
+tools{
+maven 'Maven 3.5.2'
+jdk 'java8'
+}
+
+stages{
+	stage('Initialize')
+	{
+		steps
+		{
+			echo "PATH=%PATH%"
+			echo "M2_HOME= %M2_HOME%"
+		
+		}
+	}
+	stage('Build')
+	{
+	echo 'Hello World'
+	}
+}
 }
